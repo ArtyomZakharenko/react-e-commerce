@@ -1,6 +1,13 @@
 import { FeaturedProducts, Header, Services, Contact } from '../components'
 const HomePage = () => {
-  return <h4>home page</h4>
+  return (
+    <main>
+      <Header />
+      <FeaturedProducts />
+      <Services />
+      <Contact />
+    </main>
+  );
 }
 
 export default HomePage

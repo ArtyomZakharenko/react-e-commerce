@@ -8,6 +8,7 @@ import {
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_ERROR,
 } from '../actions'
+import { IProductState } from "../models/states";
 
 const products_reducer = (state: {isSidebarOpen: boolean}, action: {type: string, payload?: any}) => {
   switch (action.type) {
@@ -15,6 +16,21 @@ const products_reducer = (state: {isSidebarOpen: boolean}, action: {type: string
       return { ...state, isSidebarOpen: true }
     case SIDEBAR_CLOSE:
       return { ...state, isSidebarOpen: false }
+    case GET_PRODUCTS_BEGIN:
+      return { ...state, products_loading: true }
+    case GET_PRODUCTS_SUCCESS:
+      const featured_products = action.payload.filter(
+        (product: {featured: boolean}) => product.featured
+      )
+      return {
+        ...state,
+        products_loading: false,
+        products: action.payload,
+        featured_products,
+      }
+    case GET_PRODUCTS_ERROR:
+      return { ...state, products_loading: false, products_error: true }
+
   }
   throw new Error(`No Matching "${action.type}" - action type`)
 }

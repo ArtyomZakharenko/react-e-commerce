@@ -4,13 +4,36 @@ import headerBcg from '../assets/header-bcg.jpg'
 import headerBcg2 from '../assets/header-bcg-2.jpg'
 
 const Header = () => {
-  return <h4>header</h4>
+	return (
+		<Wrapper className='section-center'>
+			<article className='content'>
+				<h1>
+					design your <br />
+					comfort zone
+				</h1>
+				<p>
+					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, at
+					sed omnis corporis doloremque possimus velit! Repudiandae nisi odit,
+					aperiam odio ducimus, obcaecati libero et quia tempora excepturi quis
+					alias?
+				</p>
+				<Link to='/products' className='btn hero-btn'>
+					shop now
+				</Link>
+			</article>
+			<article className='img-container'>
+				<img src={headerBcg} alt='nice table' className='main-img' />
+				<img src={headerBcg2} alt='person working' className='accent-img' />
+			</article>
+		</Wrapper>
+	);
 }
 
 const Wrapper = styled.section`
   min-height: 60vh;
   display: grid;
   place-items: center;
+
   .img-container {
     display: none;
   }
@@ -22,6 +45,7 @@ const Wrapper = styled.section`
     color: var(--clr-grey-5);
     font-size: 1rem;
   }
+
   @media (min-width: 992px) {
     height: calc(100vh - 5rem);
     grid-template-columns: 1fr 1fr;
@@ -29,17 +53,21 @@ const Wrapper = styled.section`
     h1 {
       margin-bottom: 2rem;
     }
+
     p {
       font-size: 1.25rem;
     }
+
     .header-btn {
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
     }
+
     .img-container {
       display: block;
       position: relative;
     }
+
     .main-img {
       width: 100%;
       height: 550px;
@@ -48,6 +76,7 @@ const Wrapper = styled.section`
       display: block;
       object-fit: cover;
     }
+
     .accent-img {
       position: absolute;
       bottom: 0;
@@ -56,6 +85,7 @@ const Wrapper = styled.section`
       transform: translateX(-50%);
       border-radius: var(--radius);
     }
+
     .img-container::before {
       content: '';
       position: absolute;
