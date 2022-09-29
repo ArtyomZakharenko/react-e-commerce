@@ -3,7 +3,26 @@ import { PageHeader } from '../components'
 import aboutImg from '../assets/header-bcg.jpg'
 
 const AboutPage = () => {
-  return <h4>about page</h4>
+  return (
+    <main>
+      <PageHeader title='about'/>
+      <Wrapper className='page section section-center'>
+        <img src={aboutImg} alt='desk' />
+        <article>
+          <div className='title'>
+            <h2>our story</h2>
+            <div className='underline'></div>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+            voluptatum, quibusdam, quod, voluptas quidem voluptatem necessitatibus
+            quae repellendus iure quas architecto. Quisquam, voluptas? Quae
+            voluptas, quidem doloremque quibusdam voluptatum quas.
+          </p>
+        </article>
+      </Wrapper>
+    </main>
+  )
 }
 
 const Wrapper = styled.section`
