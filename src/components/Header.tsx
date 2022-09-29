@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import heroBcg from '../assets/hero-bcg.jpg'
-import heroBcg2 from '../assets/hero-bcg-2.jpg'
+import headerBcg from '../assets/header-bcg.jpg'
+import headerBcg2 from '../assets/header-bcg-2.jpg'
 
-const Hero = () => {
-  return <h4>hero</h4>
+const Header = () => {
+  return <h4>header</h4>
 }
 
 const Wrapper = styled.section`
@@ -32,7 +32,7 @@ const Wrapper = styled.section`
     p {
       font-size: 1.25rem;
     }
-    .hero-btn {
+    .header-btn {
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
     }
@@ -69,4 +69,4 @@ const Wrapper = styled.section`
   }
 `
 
-export default Hero
+export default Header
