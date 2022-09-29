@@ -1,9 +1,18 @@
 import styled from 'styled-components'
+
 const Footer = () => {
-  return <h4>footer</h4>
+	return (
+		<Container>
+			<h5>
+				&copy; {new Date().getFullYear()}
+				<span> Store </span>
+			</h5>
+			<h5>All rights reserved</h5>
+		</Container>
+	)
 }
 
-const Wrapper = styled.footer`
+const Container = styled.footer`
   height: 5rem;
   display: flex;
   flex-direction: column;
@@ -17,7 +26,6 @@ const Wrapper = styled.footer`
   h5 {
     color: var(--clr-white);
     margin: 0.1rem;
-
     font-weight: 400;
     text-transform: none;
     line-height: 1.25;

@@ -9,8 +9,13 @@ import {
   GET_SINGLE_PRODUCT_ERROR,
 } from '../actions'
 
-const products_reducer = (state: any, action: any) => {
-  return state
+const products_reducer = (state: {isSidebarOpen: boolean}, action: {type: string, payload?: any}) => {
+  switch (action.type) {
+    case SIDEBAR_OPEN:
+      return { ...state, isSidebarOpen: true }
+    case SIDEBAR_CLOSE:
+      return { ...state, isSidebarOpen: false }
+  }
   throw new Error(`No Matching "${action.type}" - action type`)
 }
 
