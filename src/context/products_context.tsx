@@ -23,7 +23,7 @@ const initialState: IProductState = {
   single_product_loading: false,
   single_product_error: false,
   single_product: {
-    id: 0,
+    id: '',
     name: '',
     price: 0,
     description: '',
@@ -35,6 +35,7 @@ const initialState: IProductState = {
     stock: 0,
     stars: 0,
     reviews: 0,
+    colors: []
   },
 }
 
@@ -62,6 +63,17 @@ export const ProductsProvider = ({ children } : {children: ReactNode}) => {
     }
   }
 
+  const fetchSingleProduct = async (url: string) => {
+    dispatch({ type: GET_SINGLE_PRODUCT_BEGIN })
+    try {
+      const response = await axios.get(url)
+      const singleProduct = response.data
+      dispatch({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: singleProduct })
+    } catch (error) {
+      dispatch({ type: GET_SINGLE_PRODUCT_ERROR })
+    }
+  }
+
   useEffect(() => {
     fetchProducts(url);
   }, []);
@@ -70,7 +82,8 @@ export const ProductsProvider = ({ children } : {children: ReactNode}) => {
     <ProductsContext.Provider value={{
       ...state,
       openSidebar,
-      closeSidebar
+      closeSidebar,
+      fetchSingleProduct
     }}>
       {children}
     </ProductsContext.Provider>

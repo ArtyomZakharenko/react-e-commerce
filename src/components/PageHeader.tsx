@@ -1,12 +1,15 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-const PageHeader = ({title} : {title: string}) => {
+import { ISingleProduct } from "../models/product";
+
+const PageHeader = ({title, product} : {title: string, product?: ISingleProduct}) => {
+
   return (
     <Wrapper>
       <div className='section-center'>
         <h3>
-          <Link to='/'>Home</Link>
-          / {title}
+          <Link to='/'>Home </Link>
+          {product &&  <Link to='/products'>/ Products</Link>}/ {title}
         </h3>
       </div>
     </Wrapper>
