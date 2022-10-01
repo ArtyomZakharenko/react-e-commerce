@@ -7,11 +7,12 @@ import {
 	Checkout,
 	Error,
 	About,
-	Products
+	Products, PrivateRoute, AuthWrapper
 } from "./pages";
 
 function App() {
 	return (
+		<AuthWrapper>
 		<Router>
 			<Navbar />
 			<Sidebar />
@@ -21,11 +22,19 @@ function App() {
 				<Route path='cart' element={<Cart />} />
 				<Route path='products' element={<Products />} />
 				<Route path='products/:id' element={<SingleProduct />} />
-				<Route path='checkout' element={<Checkout />} />
+				<Route
+					path='checkout'
+					element={
+						<PrivateRoute>
+							<Checkout />
+						</PrivateRoute>
+					}
+				/>
 				<Route path='*' element={<Error />} />
 			</Routes>
 			<Footer />
 		</Router>
+		</AuthWrapper>
 	);
 }
 
