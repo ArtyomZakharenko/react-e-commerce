@@ -11,3 +11,19 @@ export interface IProductState {
 	single_product: ISingleProduct;
 }
 
+export interface IFilterState {
+	filtered_products: IProduct[];
+	all_products: IProduct[];
+	grid_view: boolean;
+	sort: string;
+	filters: {
+		text: string;
+		company: string;
+		category: string;
+		color: string;
+		min_price: number;
+		max_price: number;
+		price: number;
+		shipping: boolean;
+	},
+}
