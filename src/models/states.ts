@@ -1,4 +1,5 @@
 import { IProduct, ISingleProduct } from "./product";
+import { ICartItem } from "./cart";
 
 export interface IProductState {
 	isSidebarOpen: boolean;
@@ -26,4 +27,10 @@ export interface IFilterState {
 		price: number;
 		shipping: boolean;
 	},
+}
+export interface ICartState {
+	cart: ICartItem[];
+	total_items: number;
+	total_amount: number;
+	shipping_fee: number;
 }
